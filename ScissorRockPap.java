@@ -12,6 +12,13 @@ public class ScissorRockPap {
         */
         // scissor = 0, rock = 1, paper = 2
         
+        // int computerWon = 0;
+        // int userWon = 0;
+        int itsDraw = 0;
+
+        for (int computerWon = 0; computerWon < 2; computerWon++) {
+            for (int userWon = 0; userWon < 2; userWon++) {
+
         byte computer = (byte)(Math.random() * 3);
         System.out.println("computer choice" + computer);
 
@@ -19,49 +26,64 @@ public class ScissorRockPap {
         System.out.println("Choose 0, 1 or 2 for scissor(0), rock(1) or paper(2): ");
         byte user = input.nextByte();
 
-        int computerWon = 0;
-        int userWon = 0;
-
-        while (!(computerWon == 2 || userWon ==2)) {
-
+        
         if (computer == user) {
             switch (computer) {
                 case 0: System.out.println("The computer is scissor. You are scissor too. It is a draw.");
+                itsDraw++;
                 break;
                 case 1: System.out.println("The computer is rock. You are rock too. It is a draw.");
+                itsDraw++;
                 break;
                 case 2: System.out.println("The computer is paper. You are paper too. It is a draw.");
+                itsDraw++;
                 break;
             }
-        } else if (computer == 0 && user == 1) {
+
+            System.out.println("Draws counter: " + itsDraw);
+
+            } else if (computer == 0 && user == 1) {
             System.out.println("The computer is scissor. You are rock. You won.");
             userWon++;
-        } else if (computer == 0 && user == 2) {
+            } else if (computer == 0 && user == 2) {
             System.out.println("The computer is scissor. You are paper. You lost.");
             computerWon++;
-        } else if (computer == 1 && user == 0) {
+            } else if (computer == 1 && user == 0) {
             System.out.println("The computer is rock. You are scissor. You lost.");
             computerWon++;
-        } else if (computer == 1 && user == 2) {
+            } else if (computer == 1 && user == 2) {
             System.out.println("The computer is rock. You are paper. You won.");
             userWon++;
-        } else if (computer == 2 && user == 0) {
+            } else if (computer == 2 && user == 0) {
             System.out.println("The computer is paper. You are scissor. You won.");
             userWon++;
-        } else if (computer == 2 && user == 1) {
+            } else if (computer == 2 && user == 1) {
             System.out.println("The computer is paper. You are rock. You lost.");
             computerWon++;
-        }  
+            }  
+    
+        
         System.out.println("Your wins: " + userWon);
         System.out.println("Computer wins: " + computerWon);
-    }
-       
-    if (computerWon > userWon) { 
-        System.out.println("The computer wins, end of the game.");
-    } else {
-        System.out.println("You win, end of the game.");
-    }
+        
+        if (computerWon == 2) { 
+            System.out.println("The computer wins, end of the game.");
+        }
+        if (userWon == 2) {
+            System.out.println("You win, end of the game.");
+        } else if (computerWon > userWon || computerWon < userWon) {
+            System.out.println("Choose again: ");
+        }
+        if (itsDraw == itsDraw + 1) {
+                System.out.println("It's a draw: " + itsDraw);
+        }
 
+        
+    
+    // } else if ()
+        
+        }
+        }
+        }
 
-    }
-}
+    }   
